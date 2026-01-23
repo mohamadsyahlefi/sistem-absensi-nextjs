@@ -69,12 +69,15 @@ const DATA: Absensi[] = [
 export default function AbsensiPage() {
   useEffect(() => {
     // Hide page loader after component mounts
-    const loader = document.querySelector('.page-loader-wrapper')
-    if (loader) {
-      setTimeout(() => {
-        loader.classList.add('hidden')
-      }, 1000)
-    }
+    const loader = document.querySelector('.page-loader-wrapper') as HTMLElement | null
+    if (!loader) return
+    const t = window.setTimeout(() => {
+      // Make sure loader is actually gone even if core.js/jQuery doesn't run
+      loader.style.display = 'none'
+      loader.style.opacity = '0'
+      loader.style.pointerEvents = 'none'
+    }, 50)
+    return () => window.clearTimeout(t)
   }, [])
 
   const [status, setStatus] = useState<string>('')

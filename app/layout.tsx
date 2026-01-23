@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import "./globals.css";
+import PageLoaderController from "./components/PageLoaderController";
 
 export const metadata: Metadata = {
   title: "Absensi Karyawan",
@@ -48,6 +49,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-opensans">
+        <PageLoaderController />
         {children}
         
         {/* jQuery and bootstrap js */}
