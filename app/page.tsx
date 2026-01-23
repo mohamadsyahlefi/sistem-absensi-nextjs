@@ -23,9 +23,14 @@ export default function DashboardPage() {
   }
 
   const setStyleSheet = (url: string) => {
-    const stylesheet = document.getElementById('stylesheet')
-    if (stylesheet) {
-      stylesheet.setAttribute('href', url)
+    // Use global function if available, otherwise use local implementation
+    if (typeof window !== 'undefined' && (window as any).setStyleSheet) {
+      (window as any).setStyleSheet(url)
+    } else {
+      const stylesheet = document.getElementById('stylesheet')
+      if (stylesheet) {
+        stylesheet.setAttribute('href', url)
+      }
     }
   }
 
@@ -43,7 +48,7 @@ export default function DashboardPage() {
           <div className="container">
             <div className="hleft">
               <div className="dropdown">
-                <a href="#" className="nav-link user_btn">
+                <a href="javascript:void(0)" className="nav-link user_btn">
                   <Image className="avatar" src="/assets/images/user.png" alt="User" width={40} height={40} />
                 </a>
                 <a href="#" className="nav-link icon">
@@ -59,10 +64,10 @@ export default function DashboardPage() {
             </div>
             <div className="hright">
               <div className="dropdown">
-                <a href="#" className="nav-link icon settingbar">
+                <a href="javascript:void(0)" className="nav-link icon settingbar">
                   <i className="fa fa-bell"></i>
                 </a>
-                <a href="#" className="nav-link icon menu_toggle">
+                <a href="javascript:void(0)" className="nav-link icon menu_toggle">
                   <i className="fa fa-navicon"></i>
                 </a>
               </div>
@@ -72,7 +77,7 @@ export default function DashboardPage() {
 
         {/* Notification and Activity */}
         <div id="rightsidebar" className="right_sidebar">
-          <a href="#" className="p-3 settingbar float-right">
+          <a href="javascript:void(0)" className="p-3 settingbar float-right">
             <i className="fa fa-close"></i>
           </a>
           <ul className="nav nav-tabs" role="tablist">
@@ -214,7 +219,7 @@ export default function DashboardPage() {
         <div className="user_div">
           <h5 className="brand-name mb-4">
             User Crush
-            <a href="#" className="user_btn">
+            <a href="javascript:void(0)" className="user_btn">
               <i className="icon-close"></i>
             </a>
           </h5>
@@ -250,10 +255,10 @@ export default function DashboardPage() {
               <li className="list-group-item">October 22th, 1990</li>
             </ul>
             <div className="card-body">
-              <a href="#" className="card-link">
+              <a href="javascript:void(0);" className="card-link">
                 View More
               </a>
-              <a href="#" className="card-link">
+              <a href="javascript:void(0);" className="card-link">
                 Another link
               </a>
             </div>
@@ -304,10 +309,10 @@ export default function DashboardPage() {
           <div className="d-flex justify-content-between brand_name">
             <h5 className="brand-name">Crush it</h5>
             <div className="theme_btn">
-              <a className="theme1" data-toggle="tooltip" title="Theme Radical" href="#" onClick={() => setStyleSheet('/assets/css/theme1.css')}></a>
-              <a className="theme2" data-toggle="tooltip" title="Theme Turmeric" href="#" onClick={() => setStyleSheet('/assets/css/theme2.css')}></a>
-              <a className="theme3" data-toggle="tooltip" title="Theme Caribbean" href="#" onClick={() => setStyleSheet('/assets/css/theme3.css')}></a>
-              <a className="theme4" data-toggle="tooltip" title="Theme Cascade" href="#" onClick={() => setStyleSheet('/assets/css/theme4.css')}></a>
+              <a className="theme1" data-toggle="tooltip" title="Theme Radical" href="#" onClick={(e) => { e.preventDefault(); setStyleSheet('/assets/css/theme1.css'); }}></a>
+              <a className="theme2" data-toggle="tooltip" title="Theme Turmeric" href="#" onClick={(e) => { e.preventDefault(); setStyleSheet('/assets/css/theme2.css'); }}></a>
+              <a className="theme3" data-toggle="tooltip" title="Theme Caribbean" href="#" onClick={(e) => { e.preventDefault(); setStyleSheet('/assets/css/theme3.css'); }}></a>
+              <a className="theme4" data-toggle="tooltip" title="Theme Cascade" href="#" onClick={(e) => { e.preventDefault(); setStyleSheet('/assets/css/theme4.css'); }}></a>
             </div>
           </div>
           <div className="input-icon">
@@ -364,7 +369,7 @@ export default function DashboardPage() {
                   </li>
                   <li className="g_heading">Extra Pages</li>
                   <li>
-                    <a href="#" className="has-arrow arrow-b">
+                    <a href="javascript:void(0)" className="has-arrow arrow-b">
                       <i className="icon-lock"></i>
                       <span data-hover="Authentication">Authentication</span>
                     </a>
@@ -871,6 +876,38 @@ export default function DashboardPage() {
                             </span>
                           </div>
                         </form>
+                        <div className="item-action dropdown ml-2">
+                          <a href="#" className="card-options-fullscreen" data-toggle="card-fullscreen">
+                            <i className="fe fe-maximize"></i>
+                          </a>
+                          <a href="#" data-toggle="dropdown">
+                            <i className="fe fe-more-vertical"></i>
+                          </a>
+                          <div className="dropdown-menu dropdown-menu-right">
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-eye"></i> View Details
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-share-alt"></i> Share
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-cloud-download"></i> Download
+                            </a>
+                            <div className="dropdown-divider"></div>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-copy"></i> Copy to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-folder"></i> Move to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-edit"></i> Rename
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-trash"></i> Delete
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="card-body">
@@ -933,6 +970,43 @@ export default function DashboardPage() {
                   <div className="card">
                     <div className="card-header">
                       <h3 className="card-title">Sales Revenue</h3>
+                      <div className="card-options">
+                        <a href="#" className="card-options-fullscreen" data-toggle="card-fullscreen">
+                          <i className="fe fe-maximize"></i>
+                        </a>
+                        <a href="#" className="card-options-remove" data-toggle="card-remove">
+                          <i className="fe fe-x"></i>
+                        </a>
+                        <div className="item-action dropdown ml-2">
+                          <a href="#" data-toggle="dropdown">
+                            <i className="fe fe-more-vertical"></i>
+                          </a>
+                          <div className="dropdown-menu dropdown-menu-right">
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-eye"></i> View Details
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-share-alt"></i> Share
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-cloud-download"></i> Download
+                            </a>
+                            <div className="dropdown-divider"></div>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-copy"></i> Copy to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-folder"></i> Move to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-edit"></i> Rename
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-trash"></i> Delete
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div className="card-body text-center">
                       <div className="mt-4">
@@ -963,6 +1037,43 @@ export default function DashboardPage() {
                   <div className="card visitors-map">
                     <div className="card-header">
                       <h3 className="card-title">Revenue By Location</h3>
+                      <div className="card-options">
+                        <a href="#" className="card-options-fullscreen" data-toggle="card-fullscreen">
+                          <i className="fe fe-maximize"></i>
+                        </a>
+                        <a href="#" className="card-options-remove" data-toggle="card-remove">
+                          <i className="fe fe-x"></i>
+                        </a>
+                        <div className="item-action dropdown ml-2">
+                          <a href="#" data-toggle="dropdown">
+                            <i className="fe fe-more-vertical"></i>
+                          </a>
+                          <div className="dropdown-menu dropdown-menu-right">
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-eye"></i> View Details
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-share-alt"></i> Share
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-cloud-download"></i> Download
+                            </a>
+                            <div className="dropdown-divider"></div>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-copy"></i> Copy to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-folder"></i> Move to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-edit"></i> Rename
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-trash"></i> Delete
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div className="card-body">
                       <div className="row clearfix">
@@ -1050,6 +1161,43 @@ export default function DashboardPage() {
                   <div className="card">
                     <div className="card-header">
                       <h3 className="card-title">Order status</h3>
+                      <div className="card-options">
+                        <a href="#" className="card-options-fullscreen" data-toggle="card-fullscreen">
+                          <i className="fe fe-maximize"></i>
+                        </a>
+                        <a href="#" className="card-options-remove" data-toggle="card-remove">
+                          <i className="fe fe-x"></i>
+                        </a>
+                        <div className="item-action dropdown ml-2">
+                          <a href="#" data-toggle="dropdown">
+                            <i className="fe fe-more-vertical"></i>
+                          </a>
+                          <div className="dropdown-menu dropdown-menu-right">
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-eye"></i> View Details
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-share-alt"></i> Share
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-cloud-download"></i> Download
+                            </a>
+                            <div className="dropdown-divider"></div>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-copy"></i> Copy to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-folder"></i> Move to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-edit"></i> Rename
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-trash"></i> Delete
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div className="card-body text-center">
                       <div id="Order_status" style={{ height: '268px' }}></div>
@@ -1087,6 +1235,35 @@ export default function DashboardPage() {
                         <a href="#" className="card-options-remove" data-toggle="card-remove">
                           <i className="fe fe-x"></i>
                         </a>
+                        <div className="item-action dropdown ml-2">
+                          <a href="#" data-toggle="dropdown">
+                            <i className="fe fe-more-vertical"></i>
+                          </a>
+                          <div className="dropdown-menu dropdown-menu-right">
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-eye"></i> View Details
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-share-alt"></i> Share
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-cloud-download"></i> Download
+                            </a>
+                            <div className="dropdown-divider"></div>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-copy"></i> Copy to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-folder"></i> Move to
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-edit"></i> Rename
+                            </a>
+                            <a href="#" className="dropdown-item">
+                              <i className="dropdown-icon fa fa-trash"></i> Delete
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="card-body">
@@ -1208,15 +1385,18 @@ export default function DashboardPage() {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-md-6 col-sm-12">
-                    Copyright © 2024 Absensi Karyawan
+                    Copyright © 2019 <a href="https://themeforest.net/user/puffintheme">PuffinTheme</a>.
                   </div>
                   <div className="col-md-6 col-sm-12 text-md-right">
                     <ul className="list-inline mb-0">
                       <li className="list-inline-item">
-                        <a href="#">Portfolio</a>
+                        <a href="https://themeforest.net/user/puffintheme/portfolio">Portfolio</a>
                       </li>
                       <li className="list-inline-item">
-                        <a href="#">FAQ</a>
+                        <a href="javascript:void(0)">FAQ</a>
+                      </li>
+                      <li className="list-inline-item">
+                        <a href="javascript:void(0)" className="btn btn-outline-primary btn-sm">Buy Now</a>
                       </li>
                     </ul>
                   </div>
