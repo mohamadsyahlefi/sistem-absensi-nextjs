@@ -307,7 +307,7 @@ export default function DashboardPage() {
         {/* Start Main menu */}
         <div id="left-sidebar" className="sidebar">
           <div className="d-flex justify-content-between brand_name">
-            <h5 className="brand-name">Crush it</h5>
+            <h5 className="brand-name">DASHBOARD</h5>
             <div className="theme_btn">
               <a className="theme1" data-toggle="tooltip" title="Theme Radical" href="#" onClick={(e) => { e.preventDefault(); setStyleSheet('/assets/css/theme1.css'); }}></a>
               <a className="theme2" data-toggle="tooltip" title="Theme Turmeric" href="#" onClick={(e) => { e.preventDefault(); setStyleSheet('/assets/css/theme2.css'); }}></a>
@@ -355,7 +355,7 @@ export default function DashboardPage() {
                       <span data-hover="Absensi Karyawan">Absensi Karyawan</span>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/shift">
                       <i className="icon-notebook"></i>
                       <span data-hover="Shift Karyawan">Shift Karyawan</span>
@@ -366,8 +366,8 @@ export default function DashboardPage() {
                       <i className="fa-solid fa-hand-holding-dollar"></i>
                       <span data-hover="Gaji">Perhitungan Gaji</span>
                     </Link>
-                  </li>
-                  <li className="g_heading">Extra Pages</li>
+                  </li> */}
+                  {/* <li className="g_heading">Extra Pages</li>
                   <li>
                     <a href="javascript:void(0)" className="has-arrow arrow-b">
                       <i className="icon-lock"></i>
@@ -400,7 +400,7 @@ export default function DashboardPage() {
                         </Link>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </div>
