@@ -6,28 +6,33 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Hash;
-use Laravel\Sanctum\Sanctum;
+
 
 class LoginController extends Controller
 {
-    public function store(Request $request)
+   public function store(Request $request)
     {
-         // Logic for handling user login
-         $login = $request->validate([
+         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|string|min:8',
          ]);
 
-         // proses login
-         if (Auth::attempt($login, $request->remember)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('/admin')->with('success', 'Login berhasil!');
+         if (Auth::attempt($credentials)) {
+            return response()->json([
+               'message' => 'Login berhasil!',  
+            ], 200);
+         } else {
+            return response()->json([
+               'message' => 'Login gagal! Silakan periksa kembali email dan password Anda.',  
+            ], 401);
          }
 
-         // jika login gagal
-            return back()->with('error', 'Login gagal! Silakan periksa kembali email dan password Anda.')->withInput();
+         $user = Auth::user();
 
+         return response()->json([
+            'user' => $user,
+            'token' => $user->createToken('auth_token')->plainTextToken,
+         ]);
     }
     
     public function destroy(Request $request)

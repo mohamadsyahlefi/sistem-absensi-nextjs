@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "sistem-absensi-nextjs",
   "version": "0.1.0",
   "private": true,
@@ -24,8 +23,7 @@
     "eslint-config-next": "16.1.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
-=======
+  },
     "private": true,
     "scripts": {
         "dev": "vite",
@@ -36,5 +34,4 @@
         "laravel-vite-plugin": "^0.7.2",
         "vite": "^4.0.0"
     }
->>>>>>> 8e8b3e7 (progress auth login)
 }
