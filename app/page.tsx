@@ -319,7 +319,7 @@ export default function DashboardPage() {
             <span className="input-icon-addon">
               <i className="fe fe-search"></i>
             </span>
-            <input type="text" className="form-control" placeholder="Search..." />
+            <input type="text" className="form-control" placeholder="Search..." readOnly />
           </div>
           <ul className="nav nav-tabs b-none">
             <li className="nav-item">
@@ -344,7 +344,7 @@ export default function DashboardPage() {
                 <ul className="metismenu ci-effect-1">
                   <li className="g_heading">Menu</li>
                   <li>
-                    <Link href="/profil-karyawan">
+                    <Link href="/data-karyawan">
                       <i className="fa-solid fa-users"></i>
                       <span data-hover="Profil Karyawan">Profil Karyawan</span>
                     </Link>
@@ -500,15 +500,15 @@ export default function DashboardPage() {
                 <h6 className="font-14 font-weight-bold text-muted">Font Style</h6>
                 <div className="custom-controls-stacked font_setting">
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="font" value="font-opensans" defaultChecked />
+                    <input type="radio" className="custom-control-input" name="font" defaultChecked onChange={() => {}} />
                     <span className="custom-control-label">Open Sans Font</span>
                   </label>
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="font" value="font-montserrat" />
+                    <input type="radio" className="custom-control-input" name="font" onChange={() => {}} />
                     <span className="custom-control-label">Montserrat Google Font</span>
                   </label>
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="font" value="font-poppins" />
+                    <input type="radio" className="custom-control-input" name="font" onChange={() => {}} />
                     <span className="custom-control-label">Poppins Google Font</span>
                   </label>
                 </div>
@@ -517,30 +517,30 @@ export default function DashboardPage() {
                 <h6 className="font-14 font-weight-bold text-muted">Dropdown Menu Icon</h6>
                 <div className="custom-controls-stacked arrow_option">
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="marrow" value="arrow-a" defaultChecked />
+                    <input type="radio" className="custom-control-input" name="marrow" defaultChecked onChange={() => {}} />
                     <span className="custom-control-label">A</span>
                   </label>
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="marrow" value="arrow-b" />
+                    <input type="radio" className="custom-control-input" name="marrow" onChange={() => {}} />
                     <span className="custom-control-label">B</span>
                   </label>
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="marrow" value="arrow-c" />
+                    <input type="radio" className="custom-control-input" name="marrow" onChange={() => {}} />
                     <span className="custom-control-label">C</span>
                   </label>
                 </div>
                 <h6 className="font-14 font-weight-bold mt-4 text-muted">SubMenu List Icon</h6>
                 <div className="custom-controls-stacked list_option">
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="listicon" value="list-a" defaultChecked />
+                    <input type="radio" className="custom-control-input" name="listicon" value="list-a" defaultChecked onChange={() => {}} />
                     <span className="custom-control-label">A</span>
                   </label>
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="listicon" value="list-b" />
+                    <input type="radio" className="custom-control-input" name="listicon" value="list-b" onChange={() => {}} />
                     <span className="custom-control-label">B</span>
                   </label>
                   <label className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" className="custom-control-input" name="listicon" value="list-c" />
+                    <input type="radio" className="custom-control-input" name="listicon" value="list-c" onChange={() => {}} />
                     <span className="custom-control-label">C</span>
                   </label>
                 </div>
@@ -551,70 +551,70 @@ export default function DashboardPage() {
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Night Mode</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-darkmode" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-darkmode" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Fix Navbar top</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-fixnavbar" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-fixnavbar" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Header Dark</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-pageheader" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-pageheader" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Min Sidebar Dark</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-min_sidebar" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-min_sidebar" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Sidebar Dark</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-sidebar" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-sidebar" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Icon Color</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-iconcolor" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-iconcolor" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Gradient Color</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-gradient" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-gradient" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Box Shadow</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-boxshadow" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-boxshadow" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">RTL Support</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-rtl" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-rtl" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
                   <li>
                     <label className="custom-switch">
                       <span className="custom-switch-description">Box Layout</span>
-                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-boxlayout" />
+                      <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-boxlayout" onChange={() => {}} />
                       <span className="custom-switch-indicator"></span>
                     </label>
                   </li>
@@ -868,7 +868,7 @@ export default function DashboardPage() {
                       <div className="card-options">
                         <form>
                           <div className="input-group">
-                            <input type="text" className="form-control form-control-sm" placeholder="Search something..." name="s" />
+                            <input type="text" className="form-control form-control-sm" placeholder="Search something..." name="s" readOnly/>
                             <span className="input-group-btn ml-2">
                               <button className="btn btn-sm btn-default" type="submit">
                                 <span className="fe fe-search"></span>
@@ -1389,15 +1389,6 @@ export default function DashboardPage() {
                   </div>
                   <div className="col-md-6 col-sm-12 text-md-right">
                     <ul className="list-inline mb-0">
-                      <li className="list-inline-item">
-                        <a href="https://themeforest.net/user/puffintheme/portfolio">Portfolio</a>
-                      </li>
-                      <li className="list-inline-item">
-                        <a href="javascript:void(0)">FAQ</a>
-                      </li>
-                      <li className="list-inline-item">
-                        <a href="javascript:void(0)" className="btn btn-outline-primary btn-sm">Buy Now</a>
-                      </li>
                     </ul>
                   </div>
                 </div>

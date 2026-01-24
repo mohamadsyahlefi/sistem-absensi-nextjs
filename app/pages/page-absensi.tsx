@@ -430,7 +430,7 @@ export default function AbsensiPage() {
             <span className="input-icon-addon">
               <i className="fe fe-search"></i>
             </span>
-            <input type="text" className="form-control" placeholder="Search..." />
+            <input type="text" className="form-control" placeholder="Search..." readOnly />
           </div>
           <ul className="nav nav-tabs b-none">
             <li className="nav-item">
@@ -455,7 +455,7 @@ export default function AbsensiPage() {
                 <ul className="metismenu ci-effect-1">
                   <li className="g_heading">Menu</li>
                   <li>
-                    <Link href="/profil-karyawan">
+                    <Link href="/data-karyawan">
                       <i className="fa-solid fa-users"></i>
                       <span data-hover="Profil Karyawan">Profil Karyawan</span>
                     </Link>
@@ -636,6 +636,21 @@ export default function AbsensiPage() {
               </div>
             </div>
           </div>
+            <div className="section-body">
+              <footer className="footer">
+                <div className="container-fluid">
+                  <div className="row">
+                    <div className="col-md-6 col-sm-12">
+                      Copyright © 2019 <a href="https://themeforest.net/user/puffintheme">PuffinTheme</a>.
+                    </div>
+                    <div className="col-md-6 col-sm-12 text-md-right">
+                      <ul className="list-inline mb-0">
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
         </div>
       </div>
     </>
