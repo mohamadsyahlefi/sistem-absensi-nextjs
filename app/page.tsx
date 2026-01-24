@@ -4,6 +4,7 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function DashboardPage() {
   useEffect(() => {
@@ -16,10 +17,10 @@ export default function DashboardPage() {
     }
   }, [])
 
+  const router = useRouter()
+
   const handleSignOut = () => {
-    console.log('Signing out...')
-    // Implement your sign out logic here
-    // router.push('/login')
+    router.push('/login')
   }
 
   const setStyleSheet = (url: string) => {

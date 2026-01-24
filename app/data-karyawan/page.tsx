@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import DataTable from '../components/DataTable'
+import { useRouter } from 'next/navigation'
 
 export default function DataKaryawanPage() {
   useEffect(() => {
@@ -17,10 +18,10 @@ export default function DataKaryawanPage() {
     }
   }, [])
 
+  const router = useRouter()
+
   const handleSignOut = () => {
-    console.log('Signing out...')
-    // Implement your sign out logic here
-    // router.push('/login')
+    router.push('/login')
   }
 
   const setStyleSheet = (url: string) => {
@@ -544,7 +545,7 @@ export default function DataKaryawanPage() {
                     <button type="button" className="btn btn-facebook">
                       <i className="fa fa-file-text mr-2"></i>Data export
                     </button>
-                    <button type="button" className="btn btn-facebook">
+                    <button type="button" className="btn btn-facebook" onClick={handleSignOut}>
                       <i className="fa fa-power-off mr-2"></i>Sign Out
                     </button>
                   </div>

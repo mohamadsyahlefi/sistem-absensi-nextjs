@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 declare global {
   interface Window {
@@ -84,6 +85,8 @@ export default function AbsensiPage() {
   const [divisi, setDivisi] = useState<string>('')
   const [search, setSearch] = useState<string>('')
 
+  const router = useRouter()
+
   const filteredData = useMemo(
     () =>
       DATA.filter(
@@ -130,7 +133,7 @@ export default function AbsensiPage() {
   }
 
   const handleSignOut = () => {
-    console.log('Signing out...')
+    router.push('/login')
   }
 
   const setStyleSheet = (url: string) => {
