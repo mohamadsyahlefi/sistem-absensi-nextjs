@@ -36,7 +36,7 @@ export default function ForgotPasswordPage() {
         <div className="auth">
             <div className="card">
                 <div className="card-body">
-                    <div className="card-title text-center">Forgot Password</div>
+                    <div className="card-title text-center text-light">Forgot Password</div>
                     <p className="text-muted text-center">
                         Enter your email address and we&apos;ll send you a link to reset your password.
                     </p>
@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
 
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <label className="form-label">Email address</label>
+                            <label className="form-label text-light">Email address</label>
                             <input
                                 type="email"
                                 className="form-control"

@@ -65,7 +65,7 @@ export default function RegisterPage() {
     <div className="auth">
       <div className="card">
         <div className="card-body">
-          <div className="card-title text-center">Create new account</div>
+          <div className="card-title text-center text-light">Create new account</div>
           
           {error && (
             <div className="alert alert-danger" role="alert">
@@ -75,7 +75,7 @@ export default function RegisterPage() {
 
           <form onSubmit={handleSubmit}>
             <div>
-              <label className="form-label">Full Name</label>
+              <label className="form-label text-light">Full Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -88,7 +88,7 @@ export default function RegisterPage() {
             </div>
             <br />
             <div>
-              <label className="form-label">Email address</label>
+              <label className="form-label text-light">Email address</label>
               <input
                 type="email"
                 className="form-control"
@@ -101,7 +101,7 @@ export default function RegisterPage() {
             </div>
             <br />
             <div>
-              <label className="form-label">Password</label>
+              <label className="form-label text-light">Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -115,7 +115,7 @@ export default function RegisterPage() {
             </div>
             <br />
             <div>
-              <label className="form-label">Confirm Password</label>
+              <label className="form-label text-light">Confirm Password</label>
               <input
                 type="password"
                 className="form-control"

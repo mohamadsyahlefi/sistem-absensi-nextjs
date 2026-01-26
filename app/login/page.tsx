@@ -49,7 +49,7 @@ export default function LoginPage() {
         <div className="auth">
             <div className="card">
                 <div className="card-body">
-                    <div className="card-title text-center">Login to your account</div>
+                    <div className="card-title text-center text-light">Login to your account</div>
 
                     {error && (
                         <div className="alert alert-danger" role="alert">
@@ -59,7 +59,7 @@ export default function LoginPage() {
 
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <label className="form-label">Email address</label>
+                            <label className="form-label text-light">Email address</label>
                             <input
                                 type="email"
                                 className="form-control"
@@ -72,7 +72,7 @@ export default function LoginPage() {
                         </div>
                         <br />
                         <div>
-                                <label className="form-label">
+                                <label className="form-label text-light">
                                     Password
                                     <Link href="/forgot-password" className="float-right small">
                                         I forgot password
