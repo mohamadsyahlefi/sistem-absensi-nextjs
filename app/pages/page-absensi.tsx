@@ -590,10 +590,7 @@ export default function AbsensiPage() {
                   />
                 </div>
 
-                <div className="col-md-3 d-flex align-items-end gap-2">
-                  <button id="searchFilter" className="btn btn-primary w-100" type="button">
-                    Cari
-                  </button>
+                <div className="col-md-2 d-flex align-items-end gap-2">
                   <button id="resetFilter" className="btn btn-secondary w-100" type="button" onClick={handleReset}>
                     Reset
                   </button>
