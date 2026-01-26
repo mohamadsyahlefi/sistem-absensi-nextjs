@@ -238,13 +238,13 @@ export default function DataKaryawanPage() {
               <a className="theme4" data-toggle="tooltip" title="Theme Cascade" href="#" onClick={(e) => { e.preventDefault(); setStyleSheet('/assets/css/theme4.css'); }}></a>
             </div>
           </div>
-          <div className="input-icon">
+          {/* <div className="input-icon">
             <span className="input-icon-addon">
               <i className="fe fe-search"></i>
             </span>
             <input type="text" className="form-control" placeholder="Search..." readOnly />
-          </div>
-          <ul className="nav nav-tabs b-none">
+          </div> */}
+          {/* <ul className="nav nav-tabs b-none">
             <li className="nav-item">
               <a className="nav-link active" data-toggle="tab" href="#all-tab">
                 <i className="fa fa-list-ul"></i> All
@@ -260,18 +260,19 @@ export default function DataKaryawanPage() {
                 Settings
               </a>
             </li>
-          </ul>
+          </ul> */}
           <div className="tab-content">
             <div className="tab-pane fade active show" id="all-tab">
               <nav className="sidebar-nav">
                 <ul className="metismenu ci-effect-1">
-                  <li className="g_heading">Menu</li>
+                  <li className="g_heading">Data Karyawan</li>
                   <li className="active">
                     <Link href="/data-karyawan">
                       <i className="fa-solid fa-users"></i>
                       <span data-hover="Profil Karyawan">Profil Karyawan</span>
                     </Link>
                   </li>
+                  <li className="g_heading">Absensi Karyawan</li>
                   <li>
                     <Link href="/absensi">
                       <i className="icon-speech"></i>
