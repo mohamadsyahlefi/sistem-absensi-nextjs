@@ -136,42 +136,94 @@ $(document).ready(function () {
 // Sidebar Setting
 $(document).ready(function () {
   "use strict";
-  // sidebar navigation
-  $(".sidebar-nav").metisMenu();
 
-  // Menu toggle
-  $(".menu_toggle").on("click", function () {
-    $("body").toggleClass("offcanvas-active");
-  });
-  // Chat sidebar toggle
-  $(".chat_list_btn").on("click", function () {
-    $(".chat_list").toggleClass("open");
-  });
-  // User Menu
-  $(".menu_option").on("click", function () {
-    $(".metismenu").toggleClass("grid");
-    $(".menu_option").toggleClass("active");
-  });
-  // User Menu
-  $(".user_btn").on("click", function () {
-    $(".user_div").toggleClass("open");
-  });
-  // right side bar
-  $("a.settingbar").on("click", function () {
-    $(".right_sidebar").toggleClass("open");
-  });
-  // theme option
-  $("a.theme_btn").on("click", function () {
-    $(".theme_div").toggleClass("open");
-  });
-  $(".page").on("click", function () {
-    $(".theme_div, .right_sidebar").removeClass("open");
-    $(".user_div").removeClass("open");
-  });
-  // Theme Light Dark
-  $(".theme_switch").on("click", function () {
-    $("body").toggleClass("theme-dark");
-  });
+  /**
+   * IMPORTANT (Next.js App Router):
+   * - Navigasi antar halaman memakai client-side routing (tanpa full reload).
+   * - DOM untuk header/sidebar bisa diganti, sehingga binding `.on('click')` langsung ke elemen
+   *   akan hilang setelah route change.
+   * Solusi: pakai delegated events + sediakan `window.initCoreUi()` untuk re-init ringan.
+   */
+
+  // Lightweight (re)initializer for UI plugins that need DOM scan
+  window.initCoreUi = function () {
+    try {
+      // sidebar navigation (init once per element)
+      if ($.fn && $.fn.metisMenu) {
+        $(".sidebar-nav").each(function () {
+          var $el = $(this);
+          if ($el.attr("data-mm-initialized") === "true") return;
+          $el.metisMenu();
+          $el.attr("data-mm-initialized", "true");
+        });
+      }
+
+      // tooltips/popovers might exist on newly rendered pages
+      if ($.fn && $.fn.tooltip) {
+        $('[data-toggle="tooltip"]').tooltip();
+      }
+      if ($.fn && $.fn.popover) {
+        $('[data-toggle="popover"]').popover({ html: true });
+      }
+    } catch (e) {
+      // no-op: keep app functional even if plugin init fails
+    }
+  };
+
+  // Run once on initial page load
+  window.initCoreUi();
+
+  // Delegated events (survive DOM replacement across route changes)
+  // Use event namespace to prevent accidental double-binding
+  $(document)
+    .off("click.coreui", ".menu_toggle")
+    .on("click.coreui", ".menu_toggle", function () {
+      $("body").toggleClass("offcanvas-active");
+    });
+
+  $(document)
+    .off("click.coreui", ".chat_list_btn")
+    .on("click.coreui", ".chat_list_btn", function () {
+      $(".chat_list").toggleClass("open");
+    });
+
+  $(document)
+    .off("click.coreui", ".menu_option")
+    .on("click.coreui", ".menu_option", function () {
+      $(".metismenu").toggleClass("grid");
+      $(".menu_option").toggleClass("active");
+    });
+
+  $(document)
+    .off("click.coreui", ".user_btn")
+    .on("click.coreui", ".user_btn", function () {
+      $(".user_div").toggleClass("open");
+    });
+
+  $(document)
+    .off("click.coreui", "a.settingbar")
+    .on("click.coreui", "a.settingbar", function () {
+      $(".right_sidebar").toggleClass("open");
+    });
+
+  $(document)
+    .off("click.coreui", "a.theme_btn")
+    .on("click.coreui", "a.theme_btn", function () {
+      $(".theme_div").toggleClass("open");
+    });
+
+  $(document)
+    .off("click.coreui", ".page")
+    .on("click.coreui", ".page", function () {
+      $(".theme_div, .right_sidebar").removeClass("open");
+      $(".user_div").removeClass("open");
+    });
+
+  $(document)
+    .off("click.coreui", ".theme_switch")
+    .on("click.coreui", ".theme_switch", function () {
+      $("body").toggleClass("theme-dark");
+    });
 });
 
 // Font Setting and icon

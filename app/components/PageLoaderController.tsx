@@ -3,6 +3,12 @@
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
+declare global {
+  interface Window {
+    initCoreUi?: () => void
+  }
+}
+
 export default function PageLoaderController() {
   const pathname = usePathname()
 
@@ -15,6 +21,10 @@ export default function PageLoaderController() {
         el.style.opacity = '0'
         el.style.pointerEvents = 'none'
       })
+
+      // Re-init template JS that relies on DOM scan / event binding.
+      // `core.js` defines this function; it is safe to call if undefined.
+      window.initCoreUi?.()
     }, 0)
 
     return () => window.clearTimeout(t)

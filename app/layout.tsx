@@ -1,13 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import Link from "next/link";
 import "./globals.css";
 import PageLoaderController from "./components/PageLoaderController";
 
 export const metadata: Metadata = {
   title: "Absensi Karyawan",
   description: "Crush it Able The most popular Admin Dashboard template and ui kit",
-  viewport: "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  minimumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -64,9 +70,7 @@ export default function RootLayout({
         <Script src="/assets/bundles/jvectormap1.bundle.js" strategy="lazyOnload" />
         
         {/* Core js and page js */}
-        <Script src="/assets/js/core.js" strategy="lazyOnload" />
-        <Script src="/assets/js/page/index.js" strategy="lazyOnload" />
-        <Script src="/assets/js/auth.js" strategy="lazyOnload" />
+        <Script src="/assets/js/core.js" strategy="afterInteractive" />
         
         {/* Theme switcher function */}
         <Script id="theme-switcher" strategy="lazyOnload">

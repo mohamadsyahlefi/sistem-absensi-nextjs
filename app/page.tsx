@@ -763,7 +763,7 @@ export default function DashboardPage() {
                       <h3 className="card-title">Product Valuation</h3>
                       <div className="card-options">
                         <label className="custom-switch m-0">
-                          <input type="checkbox" value="1" className="custom-switch-input" defaultChecked />
+                        <input type="checkbox" className="custom-switch-input" defaultChecked />
                           <span className="custom-switch-indicator"></span>
                         </label>
                       </div>
@@ -1011,7 +1011,7 @@ export default function DashboardPage() {
                     </div>
                     <div className="card-body text-center">
                       <div className="mt-4">
-                        <input type="text" className="knob" value="34" data-width="147" data-height="147" data-thickness="0.07" data-bgcolor="#3f454a" data-fgcolor="#395bb6" />
+                        <input type="text" className="knob" defaultValue="34" data-width="147" data-height="147" data-thickness="0.07" data-bgcolor="#3f454a" data-fgcolor="#395bb6" />
                       </div>
                       <h3 className="mb-0 mt-3 font300">
                         24,301 <span className="text-green font-15">+3.7%</span>
