@@ -540,12 +540,12 @@ export default function DataKaryawanPage() {
                 </div>
                 <div className="right">
                   <div className="notification d-flex">
-                    <button type="button" className="btn btn-facebook">
+                    {/* <button type="button" className="btn btn-facebook">
                       <i className="fa fa-info-circle mr-2"></i>Need Help
                     </button>
                     <button type="button" className="btn btn-facebook">
                       <i className="fa fa-file-text mr-2"></i>Data export
-                    </button>
+                    </button> */}
                     <button type="button" className="btn btn-facebook" onClick={handleSignOut}>
                       <i className="fa fa-power-off mr-2"></i>Sign Out
                     </button>
