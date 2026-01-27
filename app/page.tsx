@@ -357,6 +357,13 @@ export default function DashboardPage() {
                       <span data-hover="Absensi Karyawan">Absensi Karyawan</span>
                     </Link>
                   </li>
+                  <li className="g_heading">Rekap Data Karyawan</li>
+                  <li>
+                    <Link href="#">
+                      <i className="icon-notebook"></i>
+                      <span data-hover="Rekap Data Karyawan">Rekap Data Karyawan</span>
+                    </Link>
+                  </li>
                   {/* <li>
                     <Link href="/shift">
                       <i className="icon-notebook"></i>

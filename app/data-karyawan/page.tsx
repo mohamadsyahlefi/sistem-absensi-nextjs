@@ -279,13 +279,14 @@ export default function DataKaryawanPage() {
                       <span data-hover="Absensi Karyawan">Absensi Karyawan</span>
                     </Link>
                   </li>
-                  {/* <li>
-                    <Link href="/shift">
+                  <li className="g_heading">Rekap Data Karyawan</li>
+                  <li>
+                    <Link href="#">
                       <i className="icon-notebook"></i>
-                      <span data-hover="Shift Karyawan">Shift Karyawan</span>
+                      <span data-hover="Rekap Data Karyawan">Rekap Data Karyawan</span>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/gaji">
                       <i className="fa-solid fa-hand-holding-dollar"></i>
                       <span data-hover="Gaji">Perhitungan Gaji</span>

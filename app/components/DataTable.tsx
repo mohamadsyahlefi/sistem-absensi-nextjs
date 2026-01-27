@@ -1,6 +1,8 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react';
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker'
 
 type Gender = 'Laki-laki' | 'Perempuan'
 
@@ -31,22 +33,6 @@ const PENDIDIKAN_OPTIONS = ['SMA/SMK', 'D3', 'S1', 'S2', 'S3']
 const seedEmployees: Employee[] = [
   {
     id: '1',
-    nama: 'Cayadi Rangga Firgantoro',
-    email: 'maya83@example.net',
-    nip: '59869443482894482',
-    password: '••••••••',
-    jenisKelamin: 'Laki-laki',
-    phone: '(+62) 361 6111 1306',
-    tglLahir: '26/06/2010',
-    tempatLahir: 'Sawahlunto',
-    kota: 'Jambi',
-    alamat: 'Jr. Sudiarto No. 672, Bima 57464, Sulte',
-    divisi: 'Divisi 3',
-    jabatan: 'HRD',
-    pendidikanTerakhir: 'S3',
-  },
-  {
-    id: '2',
     nama: 'Drajat Marbun',
     email: 'drajat.marbun@example.net',
     nip: '34624709471647633',
@@ -210,7 +196,9 @@ export default function DataTable() {
     if (isOpen) return
     if (tempObjectUrl) {
       URL.revokeObjectURL(tempObjectUrl)
-      setTempObjectUrl(null)
+      setTimeout(() => {
+        setTempObjectUrl(null)
+      }, 0)
     }
   }, [isOpen, tempObjectUrl])
 
@@ -467,12 +455,17 @@ export default function DataTable() {
                     </div>
 
                     <div className="col-md-6">
-                      <label className="form-label">Tgl. Lahir</label>
-                      <input
+                      <label className="form-label">Tanggal Lahir</label>
+                      <DatePicker
+                        selected={draft.tglLahir ? new Date(draft.tglLahir) : null}
+                        onChange={(date: Date | null) => setDraft((d) => ({ ...d, tglLahir: date?.toISOString() ?? '' }))}
                         className="form-control"
-                        value={draft.tglLahir}
-                        onChange={(e) => setDraft((d) => ({ ...d, tglLahir: e.target.value }))}
-                        placeholder="dd/mm/yyyy"
+                        dateFormat="dd/MM/yyyy"
+                        showMonthDropdown
+                        showYearDropdown
+                        dropdownMode="select"
+                        maxDate={new Date()}
+                        placeholderText="Pilih tanggal lahir"
                       />
                     </div>
 
